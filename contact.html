@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mealify | Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+                /* Keyframes for section fade-in */
+                @keyframes fadeInSection {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInSection 1.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="fade-in">
+    <div class="bg-gray-100 flex items-center justify-center min-h-screen ">
+        <div class="bg-white shadow-lg rounded-lg flex flex-col md:flex-row max-w-4xl w-full overflow-hidden">
+            <!-- Image Section -->
+            <div class="hidden md:block md:w-1/2 bg-blue-500">
+                <img 
+                    src="https://plus.unsplash.com/premium_photo-1675842663249-a8b70103dbaa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29udGFjdCUyMHVzfGVufDB8fDB8fHww" 
+                    alt="Contact Us" 
+                    class="object-cover w-full h-full">
+            </div>
+            
+            <!-- Form Section -->
+            <div class="w-full md:w-1/2 p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Contact Us</h2>
+                <form action="#" method="POST" class="space-y-6">
+                    <!-- Name -->
+                    <div>
+                        <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            placeholder="Enter your name" 
+                            class="w-full px-4 py-3 rounded-md border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                            required>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="Enter your email address" 
+                            class="w-full px-4 py-3 rounded-md border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                            required>
+                    </div>
+        
+                    <!-- Subject -->
+                    <div>
+                        <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                        <input 
+                            type="text" 
+                            id="subject" 
+                            name="subject" 
+                            placeholder="Enter subject" 
+                            class="w-full px-4 py-3 rounded-md border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                            required>
+                    </div>
+        
+                    <!-- Message -->
+                    <div>
+                        <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            rows="4" 
+                            placeholder="Write your message here" 
+                            class="w-full px-4 py-3 rounded-md border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                            required></textarea>
+                    </div>
+        
+                    <!-- Submit Button -->
+                    <div>
+                        <button 
+                            type="submit" 
+                            class="w-full bg-blue-600 text-white font-medium py-3 px-4 rounded-md shadow-lg hover:bg-blue-700 transition">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+</body>
+</html>

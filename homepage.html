@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mealify</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+    <style>
+        #tagline,.icon,
+        #taglinetext,
+        #categories,
+        #about,#review {
+            font-family: "Shadows Into Light", serif;
+        }
+
+        /* Keyframes for section fade-in */
+        @keyframes fadeInSection {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInSection 1.5s ease-in-out;
+        }
+
+
+        /* Keyframe Animation for Automatic Carousel Transition */
+        @keyframes slideAnimation {
+            0% {
+                transform: translateX(0);
+            }
+
+            33.33% {
+                transform: translateX(-100%);
+            }
+
+            66.66% {
+                transform: translateX(-200%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .carousel-container {
+            animation: slideAnimation 15s infinite;
+        }
+    </style>
+</head>
+
+<body class="fade-in">
+    <header class="sticky top-0 z-50">
+        <!-- Navbar -->
+        <nav class="bg-white shadow-md">
+            <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+                <div class="icon text-2xl font-bold text-purple-800">Mealify</div>
+                <div class="flex space-x-10 justify-center items-center">
+                    <a href="/homepage.html" class="block h-6 w-6 hover:border-2"> <svg class="block h-6 w-6"
+                            viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M1 6V15H6V11C6 9.89543 6.89543 9 8 9C9.10457 9 10 9.89543 10 11V15H15V6L8 0L1 6Z"
+                                    fill="#5e5e5e"></path>
+                            </g>
+                        </svg></a>
+                    <a href="/menupage.html" class="block text-gray-900  hover:text-blue-600">Menu</a>
+                    <a href="#" class="block text-gray-900  hover:text-blue-600">Reviews</a>
+                    <a href="/contact.html" class="block text-gray-900  hover:text-blue-600">Contact</a>
+                    <button id="openModal" class="font-medium py-2 px-4 rounded hover:text-blue-600">Sign Up</button>
+
+                    <!-- Modal -->
+                    <div id="modal"
+                        class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+                        <div class="bg-white shadow-lg flex max-w-4xl w-full relative rounded-lg">
+                            <!-- Form Section -->
+                            <div class="p-6 flex-1">
+                                <h2 class="text-2xl font-bold mb-4">Sign Up</h2>
+                                <form>
+                                    <!-- Email -->
+                                    <label class="block mb-2 text-gray-700" for="email">Email</label>
+                                    <input id="email" type="email" placeholder="Enter your email"
+                                        class="border rounded w-full p-2 mb-4" required>
+
+                                    <!-- Password -->
+                                    <label class="block mb-2 text-gray-700" for="password">Password</label>
+                                    <input id="password" type="password" placeholder="Enter your password"
+                                        class="border rounded w-full p-2 mb-4" required>
+
+                                    <!-- Sign Up Button -->
+                                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded w-full">Sign
+                                        Up</button>
+                                </form>
+
+                                <!-- Forgot Password -->
+                                <button id="forgotPassword"
+                                    class="mt-4 text-blue-600 hover:text-blue-800 text-sm">Forgot Password?</button>
+                            </div>
+
+                            <!-- Image Section -->
+                            <div class="hidden sm:block flex-1 bg-cover bg-center rounded-r"
+                                style="background-image: url('/image8.png');">
+                            </div>
+
+                            <!-- Close Button -->
+                            <button id="closeModal" class="absolute top-2 right-2 text-gray-500 hover:text-red-600">
+                                ✕
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div id="content" class="flex bg-gray-100 h-screen w-screen container mx-auto">
+        <div class="flex items-center text-center lg:text-left md:px-12 lg:w-1/2">
+            <div>
+                <h2 id="tagline" class="text-3xl font-semibold text-gray-800 md:text-4xl">ENJOY YOUR HEALTHY</h2>
+                <h2 id="taglinetext" class="text-3xl font-semibold text-purple-500 md:text-4xl">DELICIOUS FOOD</h2>
+                <p class="mt-2 py-4 text-sm text-gray-500 md:text-base dark:text-gray-400">Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Nostrum, maxime. Dolores, dicta quo! Laudantium adipisci architecto,
+                    suscipit perferendis officia quos dicta cumque quia itaque nesciunt eligendi, molestias quidem
+                    temporibus deserunt!</p>
+                <div class="flex space-x-10">
+                    <button
+                        class="text-lg bg-orange-500 hover:bg-orange-600 text-white h-10 w-32 my-6 border rounded-full">Book
+                        a Table</button>
+                    <a href="/menupage.html"><button
+                        class="text-lg bg-purple-500 hover:bg-purple-600 text-white h-10 w-32 my-6 border rounded-full">Menu</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="hidden lg:block lg:w-1/2" style="clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);">
+            <div class="h-full " style="background-image: url(/image1.png);">
+                <div class="h-full bg-black opacity-25"></div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="bg-gray-100">
+        <div id="categories" class="text-3xl font-bold text-center text-gray-800 pt-10">Categories</div>
+        <div class="flex space-x-32 justify-center pb-10">
+            <div class="my-6">
+                <a href="/menupage.html">
+                <img class="h-32 w-33 border rounded-full hover:opacity-90" src="/image2.png" alt="">
+                <p class="text-xl text-center">Starters</p>
+            </a>
+            </div>
+            <div class="my-6">
+                <a href="/menupage.html">
+                <img class="h-32 w-32 border rounded-full hover:opacity-90" src="/image3.png" alt="">
+                <p class="text-xl text-center">Panner</p>
+                </a>
+            </div>
+            <div class="my-6">
+                <a href="/menupage.html">
+                <img class="h-32 w-32 border rounded-full hover:opacity-90" src="/image4.png" alt="">
+                <p class="text-xl text-center">Chicken</p>
+                </a>
+            </div>
+            <div class="my-6">
+                <a href="/menupage.html">
+                <img class="h-32 w-32 border rounded-full hover:opacity-90" src="/image5.png" alt="">
+                <p class="text-xl text-center">Paratha</p>
+            </a>
+            </div>
+            <div class="my-6">
+                <a href="/menupage.html">
+                <img class="h-32 w-32 border rounded-full hover:opacity-90" src="/image6.png" alt="">
+                <p class="text-xl text-center">Milk Shakes</p>
+                </a>
+            </div>
+            <div class="my-6">
+                <a href="/menupage.html">
+                <img class="h-32 w-32 border rounded-full hover:opacity-90" src="/image7.png" alt="">
+                <p class="text-xl text-center">Desserts</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-gray-100 border-[0.5px] rounded-md fade-in">
+        <hr>
+        <div class="mt-10">
+            <h2 id="about" class="text-3xl font-bold text-center text-gray-800 mt-10 mb-8">About Us</h2>
+        </div>
+        <div class="mx-4 my-4 mb-16">
+            <div class="flex justify-between p-6 space-x-4">
+                <!-- Left side - Lorem Ipsum Paragraph -->
+                <div class="w-1/2">
+                    <h4 class="text-2xl font-semibold mb-4 text-purple-700">We have been making healthy and hygenic food
+                        for last 10 years</h4>
+                    <p class="text-base leading-relaxed">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna nec libero pretium
+                        accumsan sit amet ac sapien. Mauris aliquam orci ac orci fermentum, vel suscipit ipsum volutpat.
+                        Cras lacinia libero eu elit volutpat, ac efficitur justo convallis. Suspendisse at magna sapien.
+                        Donec malesuada sapien lorem, at auctor lectus sollicitudin ac. Sed suscipit risus vitae eros
+                        posuere, eget feugiat purus vehicula.
+                    </p>
+                </div>
+
+                <!-- Right side - Carousel -->
+                <div class="w-1/2 flex justify-center items-center">
+                    <div class="relative w-full overflow-hidden rounded-lg">
+                        <!-- Carousel Images -->
+                        <div class="carousel-container flex transition-transform duration-1000 ease-in-out">
+                            <div class="carousel-item w-full flex-shrink-0">
+                                <img src="https://th.bing.com/th?id=OIP.kxz2MKlH765Xyz47qV_svwHaEo&w=316&h=197&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
+                                    alt="Image 1" class="w-full h-auto rounded-lg">
+                            </div>
+                            <div class="carousel-item w-full flex-shrink-0">
+                                <img src="https://th.bing.com/th?id=OIP.AAXIYT_VCNkku23VteUEWAHaEu&w=312&h=199&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
+                                    alt="Image 2" class="w-full h-auto rounded-lg">
+                            </div>
+                            <div class="carousel-item w-full flex-shrink-0">
+                                <img src="https://th.bing.com/th?id=OIP.04DFnyhLOaWW6URleU2g2AHaEl&w=317&h=196&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
+                                    alt="Image 3" class="w-full h-auto rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="bg-gray-100 py-10 mb-16 fade-in">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 id="review" class="text-3xl font-bold text-center text-gray-800 dark:bg-gray-500 mb-8">Customer
+                    Reviews</h2>
+
+                <!-- Reviews Section -->
+                <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Review 1 -->
+                    <div class="bg-white p-6 rounded-3xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <img src="https://th.bing.com/th/id/OIP.IrUBHhdMo6wWLFueKNreRwHaHa?w=189&h=189&c=7&r=0&o=5&pid=1.7"
+                                alt="Customer 1" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <p class="text-lg font-semibold text-gray-800">John</p>
+                                <p class="text-sm text-gray-600">Customer</p>
+                            </div>
+                        </div>
+                        <div class="flex mb-4">
+                            <!-- Stars for rating -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" fill="currentColor"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" fill="currentColor"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" fill="currentColor"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" fill="currentColor"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" fill="currentColor"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-600 text-base mb-4">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
+                            Sed cursus ante dapibus diam.
+                        </p>
+                        <button class="text-blue-500 hover:text-blue-700 font-semibold text-sm">
+                            Read more
+                        </button>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="bg-white p-6 rounded-3xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <img src="https://th.bing.com/th/id/OIP.vf9n6QWY-5yiO-uzawt7BAHaHa?w=189&h=189&c=7&r=0&o=5&pid=1.7"
+                                alt="Customer 2" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <p class="text-lg font-semibold text-gray-800">Jane</p>
+                                <p class="text-sm text-gray-600">Customer</p>
+                            </div>
+                        </div>
+                        <div class="flex mb-4">
+                            <!-- Stars for rating -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" fill="currentColor"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" fill="currentColor"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" fill="currentColor"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" fill="currentColor"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" fill="currentColor"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-600 text-base mb-4">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
+                            Sed cursus ante dapibus diam.
+                        </p>
+                        <button class="text-blue-500 hover:text-blue-700 font-semibold text-sm">
+                            Read more
+                        </button>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="bg-white p-6 rounded-3xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <img src="https://th.bing.com/th/id/OIP.Z65G22q5gKlCL4K4uY8B6AHaHa?w=189&h=189&c=7&r=0&o=5&pid=1.7"
+                                alt="Customer 3" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <p class="text-lg font-semibold text-gray-800">Alice</p>
+                                <p class="text-sm text-gray-600">Customer</p>
+                            </div>
+                        </div>
+                        <div class="flex mb-4">
+                            <!-- Stars for rating -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" fill="currentColor"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" fill="currentColor"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" fill="currentColor"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" fill="currentColor"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" fill="currentColor"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-600 text-base mb-4">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
+                            Sed cursus ante dapibus diam.
+                        </p>
+                        <button class="text-blue-500 hover:text-blue-700 font-semibold text-sm">
+                            Read more
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 flex justify-between items-center">
+        <div class="px-6 py-4 flex">
+            <p class="icon font-bold text-xl text-purple-700">Mealify</p>
+            <p class="text-lg text-gray-200">&nbsp;&nbsp;|&nbsp;&nbsp;2024 Copyright</p>
+        </div>
+            <div class="flex items-center justify-center ml-auto">
+                <section class="w-96">
+                    <div class="flex justify-center space-x-6">
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/ig__rahul70/" target="_blank" class="text-gray-500 hover:text-pink-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M7.5 2C4.5 2 2 4.5 2 7.5v9c0 3 2.5 5.5 5.5 5.5h9c3 0 5.5-2.5 5.5-5.5v-9C22 4.5 19.5 2 16.5 2h-9zm9 2c2.2 0 3.5 1.3 3.5 3.5v9c0 2.2-1.3 3.5-3.5 3.5h-9c-2.2 0-3.5-1.3-3.5-3.5v-9C5 5.3 6.3 4 7.5 4h9zM12 7c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 2c1.6 0 3 1.4 3 3s-1.4 3-3 3-3-1.4-3-3 1.4-3 3-3zm5-1.5c-.4 0-.75-.3-.75-.75s.3-.75.75-.75.75.3.75.75-.35.75-.75.75z" />
+                            </svg>
+                        </a>
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/rahul-malll-85989327b/" target="_blank" class="text-gray-500 hover:text-blue-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M2.5 3C1.7 3 1 3.7 1 4.5v15c0 .8.7 1.5 1.5 1.5h19c.8 0 1.5-.7 1.5-1.5v-15c0-.8-.7-1.5-1.5-1.5h-19zm4 3c1.1 0 2 1 2 2 0 1.1-.9 2-2 2s-2-.9-2-2c0-1.1.9-2 2-2zm.5 4H4v8H7v-8zm4 0v8h3v-4c0-1 .4-2 1.5-2s1.5 1 1.5 2v4h3v-4.5c0-2.5-1.5-3.5-3.5-3.5-1.5 0-2.4.7-3 1.5v-1h-3z" />
+                            </svg>
+                        </a>
+                        <!-- GitHub -->
+                        <a href="https://github.com/Rahul1038402" target="_blank" class="text-gray-500 hover:text-gray-800">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.5 2 2 6.6 2 12.2c0 4.5 2.9 8.4 6.9 9.8.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6 1 0 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .8.1-.7.3-1.1.6-1.4-2.2-.3-4.5-1.1-4.5-5 0-1.1.4-2 1-2.7 0-.2-.3-1 .1-2 0 0 .8-.2 2.8 1 .8-.2 1.8-.4 2.7-.4s1.9.1 2.7.4c2-.2 2.8-1 2.8-1 .5 1 .2 1.8.1 2 .7.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.5 5 .4.3.7.9.7 1.8v2.7c0 .3.2.6.7.5 4-1.4 6.9-5.3 6.9-9.8C22 6.6 17.5 2 12 2z" />
+                            </svg>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script>
+        // Get elements
+        const openModalButton = document.getElementById("openModal");
+        const modal = document.getElementById("modal");
+        const closeModalButton = document.getElementById("closeModal");
+        const forgotPasswordButton = document.getElementById("forgotPassword");
+
+        // Function to show the modal
+        openModalButton.addEventListener("click", () => {
+            modal.classList.remove("hidden");
+        });
+
+        // Function to hide the modal
+        closeModalButton.addEventListener("click", () => {
+            modal.classList.add("hidden");
+        });
+
+        // Close modal when clicking outside the modal content
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                modal.classList.add("hidden");
+            }
+        });
+
+        // Forgot Password Click Handler
+        forgotPasswordButton.addEventListener("click", () => {
+            alert("Forgot Password functionality is under development!");
+        });
+
+    </script>
+</body>
+
+</html>
