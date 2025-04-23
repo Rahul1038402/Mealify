@@ -9,133 +9,61 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-
-    <style>
-        #tagline,.icon,
-        #taglinetext,
-        #categories,
-        #about,#review {
-            font-family: "Shadows Into Light", serif;
-        }
-
-        /* Keyframes for section fade-in */
-        @keyframes fadeInSection {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInSection 1.5s ease-in-out;
-        }
-
-
-        /* Keyframe Animation for Automatic Carousel Transition */
-        @keyframes slideAnimation {
-            0% {
-                transform: translateX(0);
-            }
-
-            33.33% {
-                transform: translateX(-100%);
-            }
-
-            66.66% {
-                transform: translateX(-200%);
-            }
-
-            100% {
-                transform: translateX(0);
-            }
-        }
-
-        .carousel-container {
-            animation: slideAnimation 15s infinite;
-        }
-    </style>
+    <link rel="stylesheet" href="homepage.css">
 </head>
 
-<body class="fade-in">
+<body>
     <header class="sticky top-0 z-50">
         <!-- Navbar -->
-        <nav class="bg-white shadow-md">
-            <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-                <div class="icon text-2xl font-bold text-purple-800">Mealify</div>
-                <div class="flex space-x-10 justify-center items-center">
-                    <a href="homepage.html" class="block h-6 w-6 hover:border-2"> <svg class="block h-6 w-6"
-                            viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <path
-                                    d="M1 6V15H6V11C6 9.89543 6.89543 9 8 9C9.10457 9 10 9.89543 10 11V15H15V6L8 0L1 6Z"
-                                    fill="#5e5e5e"></path>
-                            </g>
-                        </svg></a>
-                    <a href="menupage.html" class="block text-gray-900  hover:text-blue-600">Menu</a>
-                    <a href="#" class="block text-gray-900  hover:text-blue-600">Reviews</a>
-                    <a href="contact.html" class="block text-gray-900  hover:text-blue-600">Contact</a>
-                    <button id="openModal" class="font-medium py-2 px-4 rounded hover:text-blue-600">Sign Up</button>
-
-                    <!-- Modal -->
-                    <div id="modal"
-                        class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
-                        <div class="bg-white shadow-lg flex max-w-4xl w-full relative rounded-lg">
-                            <!-- Form Section -->
-                            <div class="p-6 flex-1">
-                                <h2 class="text-2xl font-bold mb-4">Sign Up</h2>
-                                <form>
-                                    <!-- Email -->
-                                    <label class="block mb-2 text-gray-700" for="email">Email</label>
-                                    <input id="email" type="email" placeholder="Enter your email"
-                                        class="border rounded w-full p-2 mb-4" required>
-
-                                    <!-- Password -->
-                                    <label class="block mb-2 text-gray-700" for="password">Password</label>
-                                    <input id="password" type="password" placeholder="Enter your password"
-                                        class="border rounded w-full p-2 mb-4" required>
-
-                                    <!-- Sign Up Button -->
-                                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded w-full">Sign
-                                        Up</button>
-                                </form>
-
-                                <!-- Forgot Password -->
-                                <button id="forgotPassword"
-                                    class="mt-4 text-blue-600 hover:text-blue-800 text-sm">Forgot Password?</button>
-                            </div>
-
-                            <!-- Image Section -->
-                            <div class="hidden sm:block flex-1 bg-cover bg-center rounded-r"
-                                style="background-image: url('image8.png');">
-                            </div>
-
-                            <!-- Close Button -->
-                            <button id="closeModal" class="absolute top-2 right-2 text-gray-500 hover:text-red-600">
-                                ✕
-                            </button>
+        <nav id="navbar" class="sticky top-0 z-50 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center space-x-3">
+                        <span class="text-2xl text-purple-500">Mealify</span>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="homepage.html"
+                                class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-600">Home</a>
+                            <a href="menupage.html"
+                                class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-600">Menu</a>
+                            <a href="contact.html"
+                                class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-600">Contact Us</a>
                         </div>
                     </div>
-
-
+                    <div class="-mr-2 flex md:hidden">
+                        <button id="mobile-menu-button"
+                            class="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-700 focus:outline-none">
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu" class="md:hidden hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="mathscalc.html"
+                        class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-600">Maths</a>
+                    <a href="healthcalc.html"
+                        class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-600">Health</a>
+                    <a href="internetconnect.html"
+                        class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-600">Internet And
+                        Connectivity</a>
                 </div>
             </div>
         </nav>
     </header>
 
 
-    <div id="content" class="flex bg-gray-100 h-screen w-screen container mx-auto">
+    <div id="content" class="flex h-screen w-screen container mx-auto bg" style="background-image: url('https://www.bing.com/images/search?q=food%20background&FORM=IQFRBA&id=8CD0069CA3D0FF6ECCC650BD238EBB62E23963A7');">
         <div class="flex items-center text-center lg:text-left md:px-12 lg:w-1/2">
             <div>
                 <h2 id="tagline" class="text-3xl font-semibold text-gray-800 md:text-4xl">ENJOY YOUR HEALTHY</h2>
                 <h2 id="taglinetext" class="text-3xl font-semibold text-purple-500 md:text-4xl">DELICIOUS FOOD</h2>
-                <p class="mt-2 py-4 text-sm text-gray-500 md:text-base dark:text-gray-400">Lorem ipsum dolor sit amet
+                <p class="mt-2 py-4 text-sm text-gray-500 md:text-base">Lorem ipsum dolor sit amet
                     consectetur adipisicing elit. Nostrum, maxime. Dolores, dicta quo! Laudantium adipisci architecto,
                     suscipit perferendis officia quos dicta cumque quia itaque nesciunt eligendi, molestias quidem
                     temporibus deserunt!</p>
@@ -148,69 +76,64 @@
                 </div>
             </div>
         </div>
-        <div class="hidden lg:block lg:w-1/2" style="clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);">
-            <div class="h-full " style="background-image: url(image1.png);">
-                <div class="h-full bg-black opacity-25"></div>
-            </div>
-        </div>
     </div>
 
     <hr>
 
     <div class="bg-gray-100">
         <div id="categories" class="text-3xl font-bold text-center text-gray-800 pt-10">Categories</div>
-        <div class="flex space-x-32 justify-center pb-10">
+        <div class="lg:flex lg:justify-center lg:space-x-32 lg:pb-10 sm:block">
             <div class="my-6">
                 <a href="menupage.html">
                 <img class="h-32 w-33 border rounded-full hover:opacity-90" src="image2.png" alt="">
-                <p class="text-xl text-center">Starters</p>
+                <p class="text-xl lg:text-center sm:text-left">Starters</p>
             </a>
             </div>
             <div class="my-6">
                 <a href="menupage.html">
                 <img class="h-32 w-32 border rounded-full hover:opacity-90" src="image3.png" alt="">
-                <p class="text-xl text-center">Panner</p>
+                <p class="text-xl lg:text-center sm:text-left">Panner</p>
                 </a>
             </div>
             <div class="my-6">
                 <a href="menupage.html">
                 <img class="h-32 w-32 border rounded-full hover:opacity-90" src="image4.png" alt="">
-                <p class="text-xl text-center">Chicken</p>
+                <p class="text-xl lg:text-center sm:text-left">Chicken</p>
                 </a>
             </div>
             <div class="my-6">
                 <a href="menupage.html">
                 <img class="h-32 w-32 border rounded-full hover:opacity-90" src="image5.png" alt="">
-                <p class="text-xl text-center">Paratha</p>
+                <p class="text-xl lg:text-center sm:text-left">Paratha</p>
             </a>
             </div>
             <div class="my-6">
                 <a href="menupage.html">
                 <img class="h-32 w-32 border rounded-full hover:opacity-90" src="image6.png" alt="">
-                <p class="text-xl text-center">Milk Shakes</p>
+                <p class="text-xl lg:text-center sm:text-left">Milk Shakes</p>
                 </a>
             </div>
             <div class="my-6">
                 <a href="menupage.html">
                 <img class="h-32 w-32 border rounded-full hover:opacity-90" src="image7.png" alt="">
-                <p class="text-xl text-center">Desserts</p>
+                <p class="text-xl lg:text-center sm:text-left">Desserts</p>
                 </a>
             </div>
         </div>
     </div>
 
-    <div class="bg-gray-100 border-[0.5px] rounded-md fade-in">
+    <div class="bg-gray-100 border-[0.5px] rounded-md">
         <hr>
         <div class="mt-10">
             <h2 id="about" class="text-3xl font-bold text-center text-gray-800 mt-10 mb-8">About Us</h2>
         </div>
         <div class="mx-4 my-4 mb-16">
-            <div class="flex justify-between p-6 space-x-4">
-                <!-- Left side - Lorem Ipsum Paragraph -->
+            <div class="lg:flex lg:justify-between lg:p-6 lg:space-x-4 sm:block">
+                <!-- Brief Info -->
                 <div class="w-1/2">
-                    <h4 class="text-2xl font-semibold mb-4 text-purple-700">We have been making healthy and hygenic food
+                    <h4 class="text-2xl font-semibold mb-4 text-purple-700 font-sans">We have been making healthy and hygenic food
                         for last 10 years</h4>
-                    <p class="text-base leading-relaxed">
+                    <p class="text-base leading-relaxed font-sans">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna nec libero pretium
                         accumsan sit amet ac sapien. Mauris aliquam orci ac orci fermentum, vel suscipit ipsum volutpat.
                         Cras lacinia libero eu elit volutpat, ac efficitur justo convallis. Suspendisse at magna sapien.
@@ -219,7 +142,7 @@
                     </p>
                 </div>
 
-                <!-- Right side - Carousel -->
+                <!-- Carousel -->
                 <div class="w-1/2 flex justify-center items-center">
                     <div class="relative w-full overflow-hidden rounded-lg">
                         <!-- Carousel Images -->
@@ -242,10 +165,9 @@
             </div>
         </div>
         <hr>
-        <div class="bg-gray-100 py-10 mb-16 fade-in">
-            <div class="max-w-7xl mx-auto px-6">
-                <h2 id="review" class="text-3xl font-bold text-center text-gray-800 dark:bg-gray-500 mb-8">Customer
-                    Reviews</h2>
+        <div class="bg-gray-100 py-10 mb-16 ">
+            <div class="mx-auto px-6">
+                <h2 id="review" class="text-3xl font-bold text-center text-gray-800 mb-8">Customer Reviews</h2>
 
                 <!-- Reviews Section -->
                 <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -287,7 +209,7 @@
                                     d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                             </svg>
                         </div>
-                        <p class="text-gray-600 text-base mb-4">
+                        <p class="text-gray-600 text-base mb-4 font-sans">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
                             Sed cursus ante dapibus diam.
                         </p>
@@ -334,7 +256,7 @@
                                     d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                             </svg>
                         </div>
-                        <p class="text-gray-600 text-base mb-4">
+                        <p class="text-gray-600 text-base mb-4 font-sans">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
                             Sed cursus ante dapibus diam.
                         </p>
@@ -381,7 +303,7 @@
                                     d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                             </svg>
                         </div>
-                        <p class="text-gray-600 text-base mb-4">
+                        <p class="text-gray-600 text-base mb-4 font-sans">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
                             Sed cursus ante dapibus diam.
                         </p>

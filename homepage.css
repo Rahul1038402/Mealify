@@ -1,0 +1,45 @@
+body {
+    font-family: "Shadows Into Light", serif;
+}
+
+#navbar {
+    background: #000000;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgb(90, 90, 90) 100%);
+}
+
+/* Keyframes for section fade-in */
+@keyframes fadeInSection {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Keyframe Animation for Automatic Carousel Transition */
+@keyframes slideAnimation {
+    0% {
+        transform: translateX(0);
+    }
+
+    33.33% {
+        transform: translateX(-100%);
+    }
+
+    66.66% {
+        transform: translateX(-200%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.carousel-container {
+    animation: slideAnimation 15s infinite;
+}
