@@ -43,3 +43,8 @@ body {
 .carousel-container {
     animation: slideAnimation 15s infinite;
 }
+
+.footer-bg {
+    background: #000000;
+    background: linear-gradient(180deg, rgb(86, 86, 86) 0%, rgb(0, 0, 0) 100%);
+}
