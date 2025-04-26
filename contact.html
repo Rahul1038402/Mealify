@@ -3,101 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mealify | Contact</title>
+    <title>Contact Us | Mealify</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-                /* Keyframes for section fade-in */
-                @keyframes fadeInSection {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+      /* Keyframes for section fade-in */
+    @keyframes fadeInSection 
+    {
+      from 
+      {
+        opacity: 0;
+        transform: translateY(20px);
+      }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+      to    
+      {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        .fade-in {
-            animation: fadeInSection 1.5s ease-in-out;
-        }
-    </style>
+    .fade-in 
+    {
+      animation: fadeInSection 0.5s ease-in-out;
+    }
+
+    .navbar-bg {
+    background: linear-gradient(0deg, #e0fee9 0%, rgb(255, 255, 255) 100%);
+    }
+
+    .footer-bg {
+    background: linear-gradient(180deg, #e0fee9 0%, rgb(255, 255, 255) 100%);
+    }
+</style>
 </head>
-<body class="fade-in">
-    <div class="bg-gray-100 flex items-center justify-center min-h-screen ">
-        <div class="bg-white shadow-lg rounded-lg flex flex-col md:flex-row max-w-4xl w-full overflow-hidden">
-            <!-- Image Section -->
-            <div class="hidden md:block md:w-1/2 bg-blue-500">
-                <img 
-                    src="https://plus.unsplash.com/premium_photo-1675842663249-a8b70103dbaa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29udGFjdCUyMHVzfGVufDB8fDB8fHww" 
-                    alt="Contact Us" 
-                    class="object-cover w-full h-full">
-            </div>
-            
-            <!-- Form Section -->
-            <div class="w-full md:w-1/2 p-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Contact Us</h2>
-                <form action="#" method="POST" class="space-y-6">
-                    <!-- Name -->
-                    <div>
-                        <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
-                        <input 
-                            type="text" 
-                            id="name" 
-                            name="name" 
-                            placeholder="Enter your name" 
-                            class="w-full px-4 py-3 rounded-md border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                            required>
+<body>
+  <div class="fade-in bg-gradient-to-br from-green-100 to-white min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <header class="navbar-bg bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <h1 class="text-2xl font-bold text-green-600">Mealify</h1>
+            <nav class="space-x-6">
+                <a href="#" class="text-gray-700 hover:text-green-600">Home</a>
+                <a href="#" class="text-gray-700 hover:text-green-600">Menu</a>
+                <a href="#" class="text-gray-700 hover:text-green-600">About</a>
+                <a href="#" class="text-green-600 font-semibold">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="flex-grow container mx-auto px-6 py-12">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-extrabold text-green-700 mb-4">Get In Touch</h2>
+            <p class="text-gray-600">We'd love to hear from you! Fill out the form below or reach us directly.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <!-- Contact Form -->
+            <form class="bg-white p-8 rounded-2xl shadow-lg space-y-6">
+                <div>
+                    <label class="block text-gray-700 mb-2" for="name">Name</label>
+                    <input type="text" id="name" class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" required>
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2" for="email">Email</label>
+                    <input type="email" id="email" class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" required>
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2" for="message">Message</label>
+                    <textarea id="message" rows="4" class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" required></textarea>
+                </div>
+                <button type="submit" class="w-full bg-green-400 text-white py-3 rounded-lg hover:bg-green-500 transition">
+                    Send Message
+                </button>
+            </form>
+
+            <!-- Contact Information -->
+            <div class="flex flex-col justify-center space-y-8">
+                <div class="flex items-center space-x-4">
+                    <div class="bg-green-100 p-3 rounded-full">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 8h18a2 2 0 002-2V6a2 2 0 00-2-2H3a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
                     </div>
-                    
-                    <!-- Email -->
-                    <div>
-                        <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name="email" 
-                            placeholder="Enter your email address" 
-                            class="w-full px-4 py-3 rounded-md border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                            required>
+                    <span class="text-gray-700">contact@mealify.com</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="bg-green-100 p-3 rounded-full">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M17 10h4a2 2 0 012 2v6a2 2 0 01-2 2h-4M7 10H3a2 2 0 00-2 2v6a2 2 0 002 2h4m5-16v4m0 4h.01m5 0h.01M12 20v-6m0 0V8m0 0H8m4 0h4"></path>
+                        </svg>
                     </div>
-        
-                    <!-- Subject -->
-                    <div>
-                        <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
-                        <input 
-                            type="text" 
-                            id="subject" 
-                            name="subject" 
-                            placeholder="Enter subject" 
-                            class="w-full px-4 py-3 rounded-md border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                            required>
+                    <span class="text-gray-700">+1 234 567 890</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="bg-green-100 p-3 rounded-full">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M17 9V7a5 5 0 00-10 0v2a5 5 0 00-1 9.9V21a1 1 0 001 1h10a1 1 0 001-1v-2.1a5 5 0 00-1-9.9z"></path>
+                        </svg>
                     </div>
-        
-                    <!-- Message -->
-                    <div>
-                        <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                        <textarea 
-                            id="message" 
-                            name="message" 
-                            rows="4" 
-                            placeholder="Write your message here" 
-                            class="w-full px-4 py-3 rounded-md border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                            required></textarea>
-                    </div>
-        
-                    <!-- Submit Button -->
-                    <div>
-                        <button 
-                            type="submit" 
-                            class="w-full bg-blue-600 text-white font-medium py-3 px-4 rounded-md shadow-lg hover:bg-blue-700 transition">
-                            Send Message
-                        </button>
-                    </div>
-                </form>
+                    <span class="text-gray-700">123 Food Street, Flavor City</span>
+                </div>
             </div>
         </div>
-        </div>
+    </section>
+  </div>
+
+    <!-- Footer -->
+    <footer class="footer-bg bg-green-600 text-black text-center py-6">
+        © 2025 Mealify. All rights reserved.
+    </footer>
+
 </body>
 </html>
