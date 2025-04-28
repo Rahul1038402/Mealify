@@ -2,42 +2,12 @@
     background: linear-gradient(0deg, #e0fee9 0%, rgb(255, 255, 255) 100%);
     }
 
-/* Keyframes for section fade-in */
-@keyframes fadeInSection {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+#content-bg
+{
+    background: #E0FEE9;
+    background: linear-gradient(0deg,rgba(224, 254, 233, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(224, 254, 233, 1) 100%);
 }
 
-
-/* Keyframe Animation for Automatic Carousel Transition */
-@keyframes slideAnimation {
-    0% {
-        transform: translateX(0);
-    }
-
-    33.33% {
-        transform: translateX(-100%);
-    }
-
-    66.66% {
-        transform: translateX(-200%);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-}
-
-.carousel-container {
-    animation: slideAnimation 15s infinite;
-}
 
 .footer-bg {
     background: linear-gradient(180deg, #e0fee9 0%, rgb(255, 255, 255) 100%);
