@@ -2,849 +2,183 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mealify | Menu</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mealify - Menu</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-
-    <style>
-        #heading,.icon,
-        .categoryitems,#fixedbutton {
-            font-family: "Shadows Into Light", serif;
-        }
-
-        /* Keyframes for section fade-in */
-        @keyframes fadeInSection {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInSection 1.5s ease-in-out;
-        }
-    </style>
-
+    <link rel="stylesheet" href="menupage.css">
 </head>
 
-<body class="bg-gray-100 fade-in">
-    <header class="top-0 z-50">
-        <!-- Navbar -->
-        <nav class="bg-white shadow-md">
-            <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-                <div class="icon text-2xl font-bold text-purple-800">Mealify</div>
-                <div class="flex space-x-10 justify-center items-center">
-                    <a href="homepage.html" class="block h-6 w-6 hover:border-2"> <svg class="block h-6 w-6"
-                            viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <path
-                                    d="M1 6V15H6V11C6 9.89543 6.89543 9 8 9C9.10457 9 10 9.89543 10 11V15H15V6L8 0L1 6Z"
-                                    fill="#5e5e5e"></path>
-                            </g>
-                        </svg></a>
-                    <a href="menupage.html" class="block text-gray-900  hover:text-blue-600">Menu</a>
-                    <a href="#" class="block text-gray-900  hover:text-blue-600">Reviews</a>
-                    <a href="contact.html" class="block text-gray-900  hover:text-blue-600">Contact</a>
-                    <button id="openModal" class="font-medium py-2 px-4 rounded hover:text-blue-600">Sign Up</button>
+<body class="gradient-bg">
+    <header id="navbar-bg" class="sticky top-0 z-50 bg-white shadow">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <span class="font-bold text-2xl text-green-600">Mealify</span>
+                </div>
 
-                    <!-- Modal -->
-                    <div id="modal"
-                        class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
-                        <div class="bg-white shadow-lg flex max-w-4xl w-full relative rounded-lg">
-                            <!-- Form Section -->
-                            <div class="p-6 flex-1">
-                                <h2 class="text-2xl font-bold mb-4">Sign Up</h2>
-                                <form>
-                                    <!-- Email -->
-                                    <label class="block mb-2 text-gray-700" for="email">Email</label>
-                                    <input id="email" type="email" placeholder="Enter your email"
-                                        class="border rounded w-full p-2 mb-4" required>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="homepage.html" class="hover:text-green-600">Home</a>
+                    <a href="menupage.html" class="hover:text-green-600">Menu</a>
+                    <a href="#" class="hover:text-green-600">About</a>
+                    <a href="contact.html" class="hover:text-green-600">Contact Us</a>
+                </div>
 
-                                    <!-- Password -->
-                                    <label class="block mb-2 text-gray-700" for="password">Password</label>
-                                    <input id="password" type="password" placeholder="Enter your password"
-                                        class="border rounded w-full p-2 mb-4" required>
-
-                                    <!-- Sign Up Button -->
-                                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded w-full">Sign
-                                        Up</button>
-                                </form>
-
-                                <!-- Forgot Password -->
-                                <button id="forgotPassword"
-                                    class="mt-4 text-blue-600 hover:text-blue-800 text-sm">Forgot Password?</button>
-                            </div>
-
-                            <!-- Image Section -->
-                            <div class="hidden sm:block flex-1 bg-cover bg-center rounded-r"
-                                style="background-image: url('/image8.png');">
-                            </div>
-
-                            <!-- Close Button -->
-                            <button id="closeModal" class="absolute top-2 right-2 text-gray-500 hover:text-red-600">
-                                ✕
-                            </button>
-                        </div>
-                    </div>
-
-
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-green-600 hover:bg-green-100 p-2 rounded">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg animate-slideDown">
+            <div class="px-4 pt-4 pb-6 space-y-4 flex flex-col">
+                <a href="homepage.html" class="block text-gray-700 hover:text-green-600">Home</a>
+                <a href="menupage.html" class="block text-gray-700 hover:text-green-600">Menu</a>
+                <a href="#" class="block text-gray-700 hover:text-green-600">About</a>
+                <a href="contact.html" class="block text-gray-700 hover:text-green-600">Contact Us</a>
+            </div>
+        </div>
     </header>
 
-    <div id="fixedbutton" class="fixed font-semibold bottom-20 right-4 flex justify-end px-4">
-        <a href="contact.html">
-        <button class="bg-white text-xl px-6 py-2 rounded-full shadow-lg hover:bg-blue-600">
-          <p>Any Issues?</p> <p>Contact Us</p>
-        </button>
-    </a>
-      </div>
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-10">
+        <h2 class="text-4xl font-bold text-center mb-20 text-gray-800">Our Menu</h2>
 
-    <h1 id="heading" class="text-4xl font-bold text-center pt-16">Menu</h1>
+        <h3 class="text-3xl font-bold text-center mb-20 text-gray-800">Top Sellers</h3>
 
-    <div class="w-1/2 m-auto max-w-md py-10">
-        <!-- Collapse 1 -->
-        <div class="w-1/2 m-auto px-4 h-52 hover:opacity-90 mix-blend-darken">
-            <img class="rounded-xl" src="image2.png" alt="">
-        </div>
-        <div class="relative py-6">
-            <button
-                class="collapseButton w-full flex justify-between items-center bg-[#FF7F50] text-white py-2 px-4 rounded-md focus:outline-none hover:bg-[#FF7F70]">
-                <span>Starters</span>
-                <svg class="arrowIcon h-5 w-5 transform transition-transform duration-300" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-            </button>
-            <div
-                class="collapseContent max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-gray-100 rounded-md">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Top Seller Dishes -->
+            <!-- Dish 1 -->
+            <div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition">
+                <img src="dish_1.jpg" alt="Dish 1" class="w-full h-48 object-cover" />
                 <div class="p-4">
-                    <div class="bg-gray-100">
-                        <div id="categories" class="categoryitems text-3xl font-bold text-center text-gray-800 pt-10">
-                            Starters</div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Panner Tikka</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Chilli Potato</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Spring Rolls</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Chicken Tikka</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Grilled Chicken</h3>
+                    <p class="text-gray-600 mb-2">Tender chicken grilled to perfection with herbs.</p>
+                    <div class="text-red-600 font-bold text-lg">₹350</div>
                 </div>
             </div>
-        </div>
 
-        <!-- Collapse 2 -->
-        <div class="w-1/2 m-auto px-4 h-52 hover:opacity-90 mix-blend-darken">
-            <img class="rounded-xl" src="image3.png" alt="">
-        </div>
-        <div class="relative py-6">
-            <button
-                class="collapseButton w-full flex justify-between items-center bg-[#FF7F50] text-white py-2 px-4 rounded-md focus:outline-none hover:bg-[#FF7F70]">
-                <span>Panner</span>
-                <svg class="arrowIcon h-5 w-5 transform transition-transform duration-300" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-            </button>
-            <div
-                class="collapseContent max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-gray-100 rounded-md">
+            <!-- Dish 2 -->
+            <div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition">
+                <img src="dish_2.jpg" alt="Dish 3" class="w-full h-48 object-cover" />
                 <div class="p-4">
-                    <div class="bg-gray-100">
-                        <div id="categories" class="categoryitems text-3xl font-bold text-center text-gray-800 pt-10">
-                            Desserts</div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Matar Panner</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Palak Panner</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Panner Tikka Masala</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Kadhai Panner</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Paneer Tikka</h3>
+                    <p class="text-gray-600 mb-2">Cottage cheese marinated in spices and grilled.</p>
+                    <div class="text-red-600 font-bold text-lg">₹300</div>
                 </div>
             </div>
-        </div>
 
-        <!-- Collapse 3 -->
-        <div class="w-1/2 m-auto px-4 h-52 hover:opacity-90 mix-blend-darken">
-            <img class="rounded-xl" src="image4.png" alt="Chicken">
-        </div>
-        <div class="relative py-6">
-            <button
-                class="collapseButton w-full flex justify-between items-center bg-[#FF7F50] text-white py-2 px-4 rounded-md focus:outline-none hover:bg-[#FF7F70]">
-                <span>Chicken</span>
-                <svg class="arrowIcon h-5 w-5 transform transition-transform duration-300" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-            </button>
-            <div
-                class="collapseContent max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-gray-100 rounded-md">
+            <!-- Dish 3 -->
+            <div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition">
+                <img src="dish_3.jpg" alt="Dish 5" class="w-full h-48 object-cover" />
                 <div class="p-4">
-                    <div class="bg-gray-100">
-                        <div id="categories" class="categoryitems text-3xl font-bold text-center text-gray-800 pt-10">
-                            Chicken</div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Chicken Tikka</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Chicken 65</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Chilli Chicken</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Butter Chicken</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Mutton Rogan Josh</h3>
+                    <p class="text-gray-600 mb-2">Rich and aromatic lamb curry, Kashmiri style.</p>
+                    <div class="text-red-600 font-bold text-lg">₹480</div>
                 </div>
             </div>
-        </div>
+         </div>
 
-        <!-- Collapse 4 -->
-        <div class="w-1/2 m-auto px-4 h-52 hover:opacity-90 mix-blend-darken">
-            <img class="rounded-xl" src="image5.png" alt="Paratha">
-        </div>
-        <div class="relative py-6">
-            <button
-                class="collapseButton w-full flex justify-between items-center bg-[#FF7F50] text-white py-2 px-4 rounded-md focus:outline-none hover:bg-[#FF7F70]">
-                <span>Paratha</span>
-                <svg class="arrowIcon h-5 w-5 transform transition-transform duration-300" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-            </button>
-            <div
-                class="collapseContent max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-gray-100 rounded-md">
+         <h3 class="text-3xl font-bold text-center my-20 text-gray-800">Other Popular Items</h3>
+
+         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Other Popular Items -->
+            <!-- Dish 4 -->
+            <div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition">
+                <img src="dish_4.jpg" alt="Dish 2" class="w-full h-48 object-cover" />
                 <div class="p-4">
-                    <div class="bg-gray-100">
-                        <div id="categories" class="categoryitems text-3xl font-bold text-center text-gray-800 pt-10">
-                            Paratha</div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Pyaz Paratha</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Aloo Paratha</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Panner Paratha</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Plain Paratha</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Veg Biryani</h3>
+                    <p class="text-gray-600 mb-2">Aromatic rice with seasonal vegetables and spices.</p>
+                    <div class="text-red-600 font-bold text-lg">₹280</div>
                 </div>
             </div>
-        </div>
 
-        <!-- Collapse 5 -->
-        <div class="w-1/2 m-auto px-4 h-52 hover:opacity-90 mix-blend-darken">
-            <img class="rounded-xl" src="image6.png" alt="Milk Shakes">
-        </div>
-        <div class="relative py-6">
-            <button
-                class="collapseButton w-full flex justify-between items-center bg-[#FF7F50] text-white py-2 px-4 rounded-md focus:outline-none hover:bg-[#FF7F70]">
-                <span>Milk Shakes</span>
-                <svg class="arrowIcon h-5 w-5 transform transition-transform duration-300" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-            </button>
-            <div
-                class="collapseContent max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-gray-100 rounded-md">
+            <!-- Dish 5 -->
+            <div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition">
+                <img src="dish_5.jpg" alt="Dish 4" class="w-full h-48 object-cover" />
                 <div class="p-4">
-                    <div class="bg-gray-100">
-                        <div id="categories" class="categoryitems text-3xl font-bold text-center text-gray-800 pt-10">
-                            Milk Shakes</div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Butterscotch Milkshake</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Oreo Milkshake</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Hazelnut Milkshake</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Kesar Badam Milkshake</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Butter Naan</h3>
+                    <p class="text-gray-600 mb-2">Soft, fluffy naan brushed with butter — perfect with any curry.</p>
+                    <div class="text-red-600 font-bold text-lg">₹60</div>
                 </div>
             </div>
-        </div>
 
-        <!-- Collapse 6 -->
-        <div class="w-1/2 m-auto px-4 h-52 hover:opacity-90 mix-blend-darken">
-            <img class="rounded-xl" src="image7.png" alt="Desserts">
-        </div>
-        <div class="relative py-6">
-            <button
-                class="collapseButton w-full flex justify-between items-center bg-[#FF7F50] text-white py-2 px-4 rounded-md focus:outline-none hover:bg-[#FF7F70]">
-                <span>Desserts</span>
-                <svg class="arrowIcon h-5 w-5 transform transition-transform duration-300" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-            </button>
-            <div
-                class="collapseContent max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-gray-100 rounded-md">
+            <!-- Dish 6 -->
+            <div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition">
+                <img src="dish_6.jpg" alt="Dish 6" class="w-full h-48 object-cover" />
                 <div class="p-4">
-                    <div class="bg-gray-100">
-                        <div id="categories" class="categoryitems text-3xl font-bold text-center text-gray-800 pt-10">
-                            Desserts</div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Chocolate Cake</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Red Velvet Cake</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Plum Cake</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-center py-6">
-                            <!-- Container Div -->
-                            <div class="relative bg-gray-100 border rounded-lg shadow-md p-6 w-96 h-52">
-                                <!-- Image Section (Left Center) -->
-                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2">
-                                    <img src="https://via.placeholder.com/100" alt="Image"
-                                        class="rounded-full shadow-lg">
-                                    <p class="pt-2">Gulab Jamun</p>
-                                    <p class="pt-2">₹250</p>
-                                    <p>Rating: 4.1</p>
-                                </div>
-
-                                <!-- Button (Bottom Right) -->
-                                <button
-                                    class="absolute bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 focus:outline-none">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Vegan Delight</h3>
+                    <p class="text-gray-600 mb-2">Fresh veggies packed with flavor.
+                    </p>
+                    <div class="text-red-600 font-bold text-lg">₹250</div>
                 </div>
             </div>
-        </div>
-    </div>
+         </div>
+    </main>
 
-    <footer class="bg-gray-900 flex justify-between items-center">
-        <div class="px-6 py-4 flex">
-            <p class="icon font-bold text-xl text-purple-800">Mealify</p>
-            <p class="text-lg text-gray-200">&nbsp;&nbsp;|&nbsp;&nbsp;2024 Copyright</p>
+    <footer
+        class="footer-bg w-full px-4 py-6 flex flex-col items-center md:flex-row md:justify-between md:items-center">
+        <!-- Left Section -->
+        <div class="flex flex-col items-center md:flex-row md:items-center space-y-1 md:space-y-0 md:space-x-2">
+            <p class="icon font-bold text-xl text-green-600">Mealify</p>
+            <p class="text-lg text-black">| 2025 Copyright</p>
         </div>
-            <div class="flex items-center justify-center ml-auto">
-                <section class="w-96">
-                    <div class="flex justify-center space-x-6">
-                        <!-- Instagram -->
-                        <a href="https://instagram.com" target="_blank" class="text-gray-500 hover:text-pink-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor"
-                                viewBox="0 0 24 24">
-                                <path
-                                    d="M7.5 2C4.5 2 2 4.5 2 7.5v9c0 3 2.5 5.5 5.5 5.5h9c3 0 5.5-2.5 5.5-5.5v-9C22 4.5 19.5 2 16.5 2h-9zm9 2c2.2 0 3.5 1.3 3.5 3.5v9c0 2.2-1.3 3.5-3.5 3.5h-9c-2.2 0-3.5-1.3-3.5-3.5v-9C5 5.3 6.3 4 7.5 4h9zM12 7c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 2c1.6 0 3 1.4 3 3s-1.4 3-3 3-3-1.4-3-3 1.4-3 3-3zm5-1.5c-.4 0-.75-.3-.75-.75s.3-.75.75-.75.75.3.75.75-.35.75-.75.75z" />
-                            </svg>
-                        </a>
-                        <!-- LinkedIn -->
-                        <a href="https://linkedin.com" target="_blank" class="text-gray-500 hover:text-blue-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor"
-                                viewBox="0 0 24 24">
-                                <path
-                                    d="M2.5 3C1.7 3 1 3.7 1 4.5v15c0 .8.7 1.5 1.5 1.5h19c.8 0 1.5-.7 1.5-1.5v-15c0-.8-.7-1.5-1.5-1.5h-19zm4 3c1.1 0 2 1 2 2 0 1.1-.9 2-2 2s-2-.9-2-2c0-1.1.9-2 2-2zm.5 4H4v8H7v-8zm4 0v8h3v-4c0-1 .4-2 1.5-2s1.5 1 1.5 2v4h3v-4.5c0-2.5-1.5-3.5-3.5-3.5-1.5 0-2.4.7-3 1.5v-1h-3z" />
-                            </svg>
-                        </a>
-                        <!-- GitHub -->
-                        <a href="https://github.com" target="_blank" class="text-gray-500 hover:text-gray-800">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor"
-                                viewBox="0 0 24 24">
-                                <path
-                                    d="M12 2C6.5 2 2 6.6 2 12.2c0 4.5 2.9 8.4 6.9 9.8.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6 1 0 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .8.1-.7.3-1.1.6-1.4-2.2-.3-4.5-1.1-4.5-5 0-1.1.4-2 1-2.7 0-.2-.3-1 .1-2 0 0 .8-.2 2.8 1 .8-.2 1.8-.4 2.7-.4s1.9.1 2.7.4c2-.2 2.8-1 2.8-1 .5 1 .2 1.8.1 2 .7.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.5 5 .4.3.7.9.7 1.8v2.7c0 .3.2.6.7.5 4-1.4 6.9-5.3 6.9-9.8C22 6.6 17.5 2 12 2z" />
-                            </svg>
-                        </a>
-                    </div>
-                </section>
-            </div>
+
+        <!-- Social Icons Section -->
+        <div class="flex justify-center mt-4 md:mt-0">
+            <section class="w-80">
+                <div class="flex justify-center space-x-6">
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/ig__rahul70/" target="_blank"
+                        class="text-gray-500 hover:text-pink-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M7.5 2C4.5 2 2 4.5 2 7.5v9c0 3 2.5 5.5 5.5 5.5h9c3 0 5.5-2.5 5.5-5.5v-9C22 4.5 19.5 2 16.5 2h-9zm9 2c2.2 0 3.5 1.3 3.5 3.5v9c0 2.2-1.3 3.5-3.5 3.5h-9c-2.2 0-3.5-1.3-3.5-3.5v-9C5 5.3 6.3 4 7.5 4h9zM12 7c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 2c1.6 0 3 1.4 3 3s-1.4 3-3 3-3-1.4-3-3 1.4-3 3-3zm5-1.5c-.4 0-.75-.3-.75-.75s.3-.75.75-.75.75.3.75.75-.35.75-.75.75z" />
+                        </svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/rahul-malll-85989327b/" target="_blank"
+                        class="text-gray-500 hover:text-blue-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M2.5 3C1.7 3 1 3.7 1 4.5v15c0 .8.7 1.5 1.5 1.5h19c.8 0 1.5-.7 1.5-1.5v-15c0-.8-.7-1.5-1.5-1.5h-19zm4 3c1.1 0 2 1 2 2 0 1.1-.9 2-2 2s-2-.9-2-2c0-1.1.9-2 2-2zm.5 4H4v8H7v-8zm4 0v8h3v-4c0-1 .4-2 1.5-2s1.5 1 1.5 2v4h3v-4.5c0-2.5-1.5-3.5-3.5-3.5-1.5 0-2.4.7-3 1.5v-1h-3z" />
+                        </svg>
+                    </a>
+                    <!-- GitHub -->
+                    <a href="https://github.com/Rahul1038402" target="_blank" class="text-gray-500 hover:text-gray-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.5 2 2 6.6 2 12.2c0 4.5 2.9 8.4 6.9 9.8.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6 1 0 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .8.1-.7.3-1.1.6-1.4-2.2-.3-4.5-1.1-4.5-5 0-1.1.4-2 1-2.7 0-.2-.3-1 .1-2 0 0 .8-.2 2.8 1 .8-.2 1.8-.4 2.7-.4s1.9.1 2.7.4c2-.2 2.8-1 2.8-1 .5 1 .2 1.8.1 2 .7.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.5 5 .4.3.7.9.7 1.8v2.7c0 .3.2.6.7.5 4-1.4 6.9-5.3 6.9-9.8C22 6.6 17.5 2 12 2z" />
+                        </svg>
+                    </a>
+                </div>
+            </section>
         </div>
     </footer>
-
-
     <script>
-        // Get elements
-        const openModalButton = document.getElementById("openModal");
-        const modal = document.getElementById("modal");
-        const closeModalButton = document.getElementById("closeModal");
-        const forgotPasswordButton = document.getElementById("forgotPassword");
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-        // Function to show the modal
-        openModalButton.addEventListener("click", () => {
-            modal.classList.remove("hidden");
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
 
-        // Function to hide the modal
-        closeModalButton.addEventListener("click", () => {
-            modal.classList.add("hidden");
-        });
-
-        // Close modal when clicking outside the modal content
-        modal.addEventListener("click", (event) => {
-            if (event.target === modal) {
-                modal.classList.add("hidden");
-            }
-        });
-
-        // Forgot Password Click Handler
-        forgotPasswordButton.addEventListener("click", () => {
-            alert("Forgot Password functionality is under development!");
-        });
-
-        // Get all collapse buttons and content sections
-        const collapseButtons = document.querySelectorAll(".collapseButton");
-        const collapseContents = document.querySelectorAll(".collapseContent");
-        const arrowIcons = document.querySelectorAll(".arrowIcon");
-
-        // Loop through each collapse button and add event listeners
-        collapseButtons.forEach((button, index) => {
-            const content = collapseContents[index];
-            const arrowIcon = arrowIcons[index];
-
-            button.addEventListener("click", () => {
-                const isOpen = content.style.maxHeight && content.style.maxHeight !== "0px";
-
-                // Close all collapses first
-                collapseContents.forEach((otherContent, otherIndex) => {
-                    if (otherIndex !== index) {
-                        otherContent.style.maxHeight = "0px";
-                        otherContent.style.padding = "0";
-                        arrowIcons[otherIndex].classList.remove("rotate-180"); // Reset other arrows
-                    }
-                });
-
-                if (isOpen) {
-                    // Close the current collapse
-                    content.style.maxHeight = "0px";
-                    content.style.padding = "0";
-                    arrowIcon.classList.remove("rotate-180");
-                } else {
-                    // Open the current collapse
-                    content.style.maxHeight = content.scrollHeight + "px";
-                    content.style.padding = "1rem"; // Add padding when opened
-                    arrowIcon.classList.add("rotate-180");
-                }
+        // Close mobile menu on link click
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
             });
         });
-
-
     </script>
 </body>
 
