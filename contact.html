@@ -1,112 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Mealify</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      /* Keyframes for section fade-in */
-    @keyframes fadeInSection 
-    {
-      from 
-      {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to    
-      {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fade-in 
-    {
-      animation: fadeInSection 0.5s ease-in-out;
-    }
-
-    .navbar-bg {
-    background: linear-gradient(0deg, #e0fee9 0%, rgb(255, 255, 255) 100%);
-    }
-
-    .footer-bg {
-    background: linear-gradient(180deg, #e0fee9 0%, rgb(255, 255, 255) 100%);
-    }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Mealify</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="contact.css">
 </head>
+
 <body>
   <div class="fade-in bg-gradient-to-br from-green-100 to-white min-h-screen flex flex-col">
 
     <!-- Navbar -->
-    <header class="navbar-bg bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center p-4">
-            <h1 class="text-2xl font-bold text-green-600">Mealify</h1>
-            <nav class="space-x-6">
-                <a href="homepage.html" class="text-gray-700 hover:text-green-600">Home</a>
-                <a href="menupage.html" class="text-gray-700 hover:text-green-600">Menu</a>
-                <a href="#" class="text-gray-700 hover:text-green-600">About</a>
-                <a href="contact.html" class="text-green-600 font-semibold">Contact</a>
-            </nav>
+    <header id="navbar-bg" class="sticky top-0 z-50 bg-white shadow">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center space-x-3">
+            <span class="font-bold text-2xl text-green-600">Mealify</span>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex space-x-6">
+            <a href="homepage.html" class="hover:text-green-600">Home</a>
+            <a href="menupage.html" class="hover:text-green-600">Menu</a>
+            <a href="#" class="hover:text-green-600">About</a>
+            <a href="contact.html" class="hover:text-green-600">Contact Us</a>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden">
+            <button id="mobile-menu-button" class="text-green-600 hover:bg-green-100 p-2 rounded">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                </path>
+              </svg>
+            </button>
+          </div>
         </div>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg animate-slideDown">
+        <div class="px-4 pt-4 pb-6 space-y-4 flex flex-col">
+          <a href="homepage.html" class="block text-gray-700 hover:text-green-600">Home</a>
+          <a href="menupage.html" class="block text-gray-700 hover:text-green-600">Menu</a>
+          <a href="#" class="block text-gray-700 hover:text-green-600">About</a>
+          <a href="contact.html" class="block text-gray-700 hover:text-green-600">Contact Us</a>
+        </div>
+      </div>
     </header>
 
     <!-- Contact Section -->
     <section class="flex-grow container mx-auto px-6 py-12">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-extrabold text-green-700 mb-4">Get In Touch</h2>
-            <p class="text-gray-600">We'd love to hear from you! Fill out the form below or reach us directly.</p>
-        </div>
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-extrabold text-green-700 mb-4">Get In Touch</h2>
+        <p class="text-gray-600">We'd love to hear from you! Fill out the form below or reach us directly.</p>
+      </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <!-- Contact Form -->
-            <form class="bg-white p-8 rounded-2xl shadow-lg space-y-6">
-                <div>
-                    <label class="block text-gray-700 mb-2" for="name">Name</label>
-                    <input type="text" id="name" class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" required>
-                </div>
-                <div>
-                    <label class="block text-gray-700 mb-2" for="email">Email</label>
-                    <input type="email" id="email" class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" required>
-                </div>
-                <div>
-                    <label class="block text-gray-700 mb-2" for="message">Message</label>
-                    <textarea id="message" rows="4" class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" required></textarea>
-                </div>
-                <button type="submit" class="w-full bg-green-400 text-white py-3 rounded-lg hover:bg-green-500 transition">
-                    Send Message
-                </button>
-            </form>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <!-- Contact Form -->
+        <form class="bg-white p-8 rounded-2xl shadow-lg space-y-6">
+          <div>
+            <label class="block text-gray-700 mb-2" for="name">Name</label>
+            <input type="text" id="name"
+              class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+              required>
+          </div>
+          <div>
+            <label class="block text-gray-700 mb-2" for="email">Email</label>
+            <input type="email" id="email"
+              class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+              required>
+          </div>
+          <div>
+            <label class="block text-gray-700 mb-2" for="message">Message</label>
+            <textarea id="message" rows="4"
+              class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+              required></textarea>
+          </div>
+          <button type="submit" class="w-full bg-green-400 text-white py-3 rounded-lg hover:bg-green-500 transition">
+            Send Message
+          </button>
+        </form>
 
-            <!-- Contact Information -->
-            <div class="flex flex-col justify-center space-y-8">
-                <div class="flex items-center space-x-4">
-                    <div class="bg-green-100 p-3 rounded-full">
-                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 8h18a2 2 0 002-2V6a2 2 0 00-2-2H3a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                        </svg>
-                    </div>
-                    <span class="text-gray-700">contact@mealify.com</span>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <div class="bg-green-100 p-3 rounded-full">
-                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M17 10h4a2 2 0 012 2v6a2 2 0 01-2 2h-4M7 10H3a2 2 0 00-2 2v6a2 2 0 002 2h4m5-16v4m0 4h.01m5 0h.01M12 20v-6m0 0V8m0 0H8m4 0h4"></path>
-                        </svg>
-                    </div>
-                    <span class="text-gray-700">+1 234 567 890</span>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <div class="bg-green-100 p-3 rounded-full">
-                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M17 9V7a5 5 0 00-10 0v2a5 5 0 00-1 9.9V21a1 1 0 001 1h10a1 1 0 001-1v-2.1a5 5 0 00-1-9.9z"></path>
-                        </svg>
-                    </div>
-                    <span class="text-gray-700">123 Food Street, Flavor City</span>
-                </div>
+        <!-- Contact Information -->
+        <div class="flex flex-col justify-center space-y-8">
+          <div class="flex items-center space-x-4">
+            <div class="bg-green-100 p-3 rounded-full">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 8h18a2 2 0 002-2V6a2 2 0 00-2-2H3a2 2 0 00-2 2v8a2 2 0 002 2z">
+                </path>
+              </svg>
             </div>
+            <span class="text-gray-700">contact@mealify.com</span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <div class="bg-green-100 p-3 rounded-full">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path
+                  d="M17 10h4a2 2 0 012 2v6a2 2 0 01-2 2h-4M7 10H3a2 2 0 00-2 2v6a2 2 0 002 2h4m5-16v4m0 4h.01m5 0h.01M12 20v-6m0 0V8m0 0H8m4 0h4">
+                </path>
+              </svg>
+            </div>
+            <span class="text-gray-700">+1 234 567 890</span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <div class="bg-green-100 p-3 rounded-full">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path d="M17 9V7a5 5 0 00-10 0v2a5 5 0 00-1 9.9V21a1 1 0 001 1h10a1 1 0 001-1v-2.1a5 5 0 00-1-9.9z">
+                </path>
+              </svg>
+            </div>
+            <span class="text-gray-700">123 Food Street, Flavor City</span>
+          </div>
         </div>
+      </div>
     </section>
   </div>
 
@@ -116,7 +130,7 @@
       <p class="icon font-bold text-xl text-green-600">Mealify</p>
       <p class="text-lg text-black">| 2025 Copyright</p>
     </div>
-  
+
     <!-- Social Icons Section -->
     <div class="flex justify-center mt-4 md:mt-0">
       <section class="w-80">
@@ -124,19 +138,23 @@
           <!-- Instagram -->
           <a href="https://www.instagram.com/ig__rahul70/" target="_blank" class="text-gray-500 hover:text-pink-600">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M7.5 2C4.5 2 2 4.5 2 7.5v9c0 3 2.5 5.5 5.5 5.5h9c3 0 5.5-2.5 5.5-5.5v-9C22 4.5 19.5 2 16.5 2h-9zm9 2c2.2 0 3.5 1.3 3.5 3.5v9c0 2.2-1.3 3.5-3.5 3.5h-9c-2.2 0-3.5-1.3-3.5-3.5v-9C5 5.3 6.3 4 7.5 4h9zM12 7c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 2c1.6 0 3 1.4 3 3s-1.4 3-3 3-3-1.4-3-3 1.4-3 3-3zm5-1.5c-.4 0-.75-.3-.75-.75s.3-.75.75-.75.75.3.75.75-.35.75-.75.75z"/>
+              <path
+                d="M7.5 2C4.5 2 2 4.5 2 7.5v9c0 3 2.5 5.5 5.5 5.5h9c3 0 5.5-2.5 5.5-5.5v-9C22 4.5 19.5 2 16.5 2h-9zm9 2c2.2 0 3.5 1.3 3.5 3.5v9c0 2.2-1.3 3.5-3.5 3.5h-9c-2.2 0-3.5-1.3-3.5-3.5v-9C5 5.3 6.3 4 7.5 4h9zM12 7c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 2c1.6 0 3 1.4 3 3s-1.4 3-3 3-3-1.4-3-3 1.4-3 3-3zm5-1.5c-.4 0-.75-.3-.75-.75s.3-.75.75-.75.75.3.75.75-.35.75-.75.75z" />
             </svg>
           </a>
           <!-- LinkedIn -->
-          <a href="https://www.linkedin.com/in/rahul-malll-85989327b/" target="_blank" class="text-gray-500 hover:text-blue-600">
+          <a href="https://www.linkedin.com/in/rahul-malll-85989327b/" target="_blank"
+            class="text-gray-500 hover:text-blue-600">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M2.5 3C1.7 3 1 3.7 1 4.5v15c0 .8.7 1.5 1.5 1.5h19c.8 0 1.5-.7 1.5-1.5v-15c0-.8-.7-1.5-1.5-1.5h-19zm4 3c1.1 0 2 1 2 2 0 1.1-.9 2-2 2s-2-.9-2-2c0-1.1.9-2 2-2zm.5 4H4v8H7v-8zm4 0v8h3v-4c0-1 .4-2 1.5-2s1.5 1 1.5 2v4h3v-4.5c0-2.5-1.5-3.5-3.5-3.5-1.5 0-2.4.7-3 1.5v-1h-3z"/>
+              <path
+                d="M2.5 3C1.7 3 1 3.7 1 4.5v15c0 .8.7 1.5 1.5 1.5h19c.8 0 1.5-.7 1.5-1.5v-15c0-.8-.7-1.5-1.5-1.5h-19zm4 3c1.1 0 2 1 2 2 0 1.1-.9 2-2 2s-2-.9-2-2c0-1.1.9-2 2-2zm.5 4H4v8H7v-8zm4 0v8h3v-4c0-1 .4-2 1.5-2s1.5 1 1.5 2v4h3v-4.5c0-2.5-1.5-3.5-3.5-3.5-1.5 0-2.4.7-3 1.5v-1h-3z" />
             </svg>
           </a>
           <!-- GitHub -->
           <a href="https://github.com/Rahul1038402" target="_blank" class="text-gray-500 hover:text-gray-400">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C6.5 2 2 6.6 2 12.2c0 4.5 2.9 8.4 6.9 9.8.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6 1 0 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .8.1-.7.3-1.1.6-1.4-2.2-.3-4.5-1.1-4.5-5 0-1.1.4-2 1-2.7 0-.2-.3-1 .1-2 0 0 .8-.2 2.8 1 .8-.2 1.8-.4 2.7-.4s1.9.1 2.7.4c2-.2 2.8-1 2.8-1 .5 1 .2 1.8.1 2 .7.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.5 5 .4.3.7.9.7 1.8v2.7c0 .3.2.6.7.5 4-1.4 6.9-5.3 6.9-9.8C22 6.6 17.5 2 12 2z"/>
+              <path
+                d="M12 2C6.5 2 2 6.6 2 12.2c0 4.5 2.9 8.4 6.9 9.8.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6 1 0 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .8.1-.7.3-1.1.6-1.4-2.2-.3-4.5-1.1-4.5-5 0-1.1.4-2 1-2.7 0-.2-.3-1 .1-2 0 0 .8-.2 2.8 1 .8-.2 1.8-.4 2.7-.4s1.9.1 2.7.4c2-.2 2.8-1 2.8-1 .5 1 .2 1.8.1 2 .7.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.5 5 .4.3.7.9.7 1.8v2.7c0 .3.2.6.7.5 4-1.4 6.9-5.3 6.9-9.8C22 6.6 17.5 2 12 2z" />
             </svg>
           </a>
         </div>
@@ -144,5 +162,23 @@
     </div>
   </footer>
 
+  <script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on link click
+    const menuLinks = mobileMenu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  </script>
+
 </body>
+
 </html>

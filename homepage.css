@@ -1,29 +1,29 @@
 #navbar-bg {
-    background: linear-gradient(0deg, #e0fee9 0%, rgb(255, 255, 255) 100%);
-    }
+  background: linear-gradient(0deg, #e0fee9 0%, rgb(255, 255, 255) 100%);
+}
 
-#content-bg
-{
-    background: #E0FEE9;
-    background: linear-gradient(0deg,rgba(224, 254, 233, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(224, 254, 233, 1) 100%);
+#content-bg {
+  background: #E0FEE9;
+  background: linear-gradient(0deg, rgba(224, 254, 233, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(224, 254, 233, 1) 100%);
 }
 
 
 .footer-bg {
-    background: linear-gradient(180deg, #e0fee9 0%, rgb(255, 255, 255) 100%);
-    }
+  background: linear-gradient(180deg, #e0fee9 0%, rgb(255, 255, 255) 100%);
+}
 
-    @keyframes slideDown {
-        0% {
-          transform: translateY(-10%);
-          opacity: 0;
-        }
-        100% {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-  
-      .animate-slideDown {
-        animation: slideDown 0.3s ease-out forwards;
-      }
+@keyframes slideDown {
+  0% {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out forwards;
+}
